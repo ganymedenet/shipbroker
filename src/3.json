@@ -1,0 +1,195 @@
+{
+  "text": {
+    "must_login": "You need to log in to use this feature",
+    "upload_photo": "Upload a photo",
+    "vessel_info_unavailable": "Vessel Info Unavailable",
+    "please_try_again_later": "Please Try Again In A Few Minutes",
+    "ship_photos": "Ship Photos",
+    "add_notifications": "Create Notifications",
+    "vessel_details": "Vessel details",
+    "status_name": "Underway Using Engine",
+    "status": "Service status",
+    "speed_course": "Speed/Course",
+    "received": "Received",
+    "managed_vessels": "Managed Vessels",
+    "operated_by": "Operated By",
+    "oncourse": "",
+    "load_condition": "Load condition",
+    "load_status_name": "Laden",
+    "draught": "Draught",
+    "ais_source": "AIS source",
+    "rates": "Rates",
+    "more_info": "More Info",
+    "actions_on_map": "ACTIONS ON MAP",
+    "upload_href": "/en/photos/upload-photo?asset_id=407191",
+    "img_href": "/en/photos/of/ships/shipid:407191/ship_name:AVELLANEDA",
+    "img_thumb": "https://www.marinetraffic.com/photoCollection/getAssetDefaultPhoto?asset_id=407191&asset_type_id=0&photo_size=150",
+    "img_medium": "https://www.marinetraffic.com/photoCollection/getAssetDefaultPhoto?asset_id=407191&asset_type_id=0&photo_size=300",
+    "infowin_noimg": "",
+    "type_color_img": "/img/vessel_types/vi7.png",
+    "flag_img": "/img/flags/png40/PA.png",
+    "ship_detail_url": "/en/ais/details/ships/shipid:407191/mmsi:351210000/imo:9571636/vessel:AVELLANEDA",
+    "notifications_url": "/en/users/my_account/notifications/index/wizard/shipid:407191",
+    "station_url": ""
+  },
+  "values": {
+    "light_iw": false,
+    "vessel_history_limit": 1,
+    "country_code": "PA",
+    "show_chartering_btn": false,
+    "has_voyage_forecast_snippet": true,
+    "reported_draught": "Reported Draught: 10.3m<br />Max Draught: 11m",
+    "no_data_available": false,
+    "dest_class": "gotocoords",
+    "port_data_x": "35.65574",
+    "port_data_y": "34.28048",
+    "last_pos": 1717149834,
+    "last_pos_tooltip": 1717149834,
+    "elapsed": 1717149834,
+    "timezone_offset": 60,
+    "show_load_status": 2,
+    "vsl_length": 180,
+    "vsl_code": "",
+    "type_summary": "Cargo",
+    "load_status": {
+      "reported_draught": [
+        "Reported Draught",
+        "10.3m"
+      ],
+      "max_draught": [
+        "Max draught",
+        "11m"
+      ]
+    },
+    "vessel_in_fleet": false,
+    "ship_id": "407191",
+    "ship_type": "7",
+    "mmsi": "351210000",
+    "imo": "9571636",
+    "type_name": "Bulk Carrier",
+    "country": "Panama",
+    "shipname": "AVELLANEDA",
+    "course": "83",
+    "dwt": "34931",
+    "speed": "10.80",
+    "ship_lat": "36.75283",
+    "ship_lon": "1.000762",
+    "draught": "103",
+    "last_port_id": "22566",
+    "last_port_name": "ITACOATIARA ANCH",
+    "last_port_country": "BR",
+    "last_port_unlocode": "",
+    "next_port_id": "24049",
+    "next_port_name": "SELAATA",
+    "next_port_country": "LB",
+    "next_port_unlocode": "LBSEL",
+    "photos_count": "34",
+    "station_operator": "",
+    "past_track_url": "/en/ais/home/shipid:407191/tracktype:7/lpt:1715788980",
+    "forecast_url": "/en/ais/home/shipid:407191/tracktype:7",
+    "station_name": "Terrestrial Ais"
+  },
+  "voyage": {
+    "estimated_route_found": true,
+    "destination_expanded": "Route Forecast unavailable.<br />Could not find a valid known route from the vessel's current position to LBSEL.",
+    "route_forecast_destination": "LBSEL",
+    "show_vessel_track": "Show Previous Track",
+    "estimated_track": "Show Route Forecast",
+    "distance_to": "Distance from here",
+    "position_history": "Position history",
+    "itineraries": "Voyage Timeline",
+    "port_calls": "Port Calls",
+    "near_vessels": "Nearby Vessels",
+    "past_track": "Past track",
+    "track_forecast": "Route forecast",
+    "full_info_access": "For full access",
+    "upgrade_now": "upgrade to activate",
+    "plans_url": "/en/one_page_application/solutions#OnlineServices",
+    "departure_port_info_tooltip": "",
+    "departure_port_info_label": "ITACOATIARA ANCH [BR]",
+    "departure_port_info_country_code": "",
+    "departure_port_info_port_code": "",
+    "departure_port_info_id": "22566",
+    "departure_port_info_fontSize": "110%",
+    "departure_port_info_title": "Actual Time of Departure",
+    "departure_port_info_titleLabel": "ATD",
+    "departure_port_info_portTime": 1715788980,
+    "departure_port_info_offset": "-240",
+    "departure_port_url": "/en/ais/details/ports/22566?name=ITACOATIARA-ANCH&country=Brazil",
+    "last_port_timestamp": 1715788980,
+    "arrival_port_info_tooltip": "SELAATA [LB]",
+    "arrival_port_info_country_code": "LB",
+    "arrival_port_info_port_code": "SEL",
+    "arrival_time_title": "Estimated Time of Arrival",
+    "arrival_time_label": "ETA",
+    "arrival_time_datetime": 1717696800,
+    "arrival_time_offset": "180",
+    "arrival_port_info_label": "<span class=\"text-default\">LB</span><span class=\"text-default text-darker\">SEL</span>",
+    "arrival_port_info_fontSize": "160%",
+    "arrival_port_url": "/en/ais/details/ports/24049?name=SELAATA&country=Lebanon",
+    "timeline_class": "",
+    "triangle_pos": 69.73017170891251,
+    "itineraries_url": "/en/data/?asset_type=voyage_timeline&quicksearch_vessel=407191|AVELLANEDA",
+    "positions_url": "/en/online-services/plans/voyage-data/",
+    "lock_positions": true,
+    "port_moves_url": "/en/data/?asset_type=arrivals_departures&ship_in=407191|AVELLANEDA",
+    "ships_url": "/en/ais/index/ships/nearby/mmsi:351210000/shipid:407191/shipname:AVELLANEDA",
+    "dest_rep": "GIGIB > LBSEL",
+    "snippet_state_id": 3,
+    "show_upgrade_voyage_forecast": true,
+    "info_tooltip": {
+      "eta_calculated_at_speed": [
+        "Calculated ETA at",
+        "hidden"
+      ],
+      "eta_calculated": [
+        "Calculated ETA",
+        "hidden"
+      ],
+      "eta_reported": [
+        "Reported ETA",
+        1717696800
+      ],
+      "reported_destination": [
+        "Reported Destination",
+        "GIGIB > LBSEL"
+      ],
+      "estimated_time_departure": [
+        "Predictive ETD",
+        "hidden",
+        "beta"
+      ]
+    },
+    "snippet_tooltip": [
+      [
+        "Distance Travelled",
+        "hidden"
+      ],
+      [
+        "Distance To Go",
+        "hidden"
+      ],
+      [
+        "Total Voyage Distance",
+        "hidden"
+      ],
+      [
+        "Time To Destination",
+        "hidden"
+      ]
+    ]
+  },
+  "fleetcontrols": {
+    "default_fleet_id": null,
+    "fleets": [],
+    "ship_in_fleet": null,
+    "ship_in_fleet_activation": 0,
+    "add_to_my_fleet": "Add to fleet",
+    "add_to_default_fleet": "Add to default fleet",
+    "add_to_current_fleet": "Add to current fleet",
+    "toggle_dropdown": "Toggle Dropdown",
+    "show_available_fleets": "Show available fleets",
+    "add_to_new_fleet": "Add to new fleet",
+    "fleet_help": "Create a new Fleet, which will include this vessel."
+  }
+}
