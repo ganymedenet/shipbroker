@@ -1,0 +1,199 @@
+[
+    {
+        "name": "Alanya",
+        "code": "TRALY",
+        "aliases": []
+    },
+    {
+        "name": "Aliaga",
+        "code": "TRALI",
+        "aliases": []
+    },
+    {
+        "name": "Ambarli",
+        "code": "TRAMB",
+        "aliases": []
+    },
+    {
+        "name": "Antalya",
+        "code": "TRANT",
+        "aliases": []
+    },
+    {
+        "name": "Ayvalik",
+        "code": "TRAYV",
+        "aliases": []
+    },
+    {
+        "name": "Bandirma",
+        "code": "TRBDM",
+        "aliases": []
+    },
+    {
+        "name": "Bodrum",
+        "code": "TRBXN",
+        "aliases": []
+    },
+    {
+        "name": "Borusan",
+        "code": "TRBOR",
+        "aliases": []
+    },
+    {
+        "name": "Cesme",
+        "code": "TRCES",
+        "aliases": []
+    },
+    {
+        "name": "Cide",
+        "code": "TRCID",
+        "aliases": []
+    },
+    {
+        "name": "Darica",
+        "code": "TRDAR",
+        "aliases": []
+    },
+    {
+        "name": "Derince",
+        "code": "TRDER",
+        "aliases": []
+    },
+    {
+        "name": "Dikili",
+        "code": "TRDIK",
+        "aliases": []
+    },
+    {
+        "name": "Dortyol Oil Terminal",
+        "code": "TRDOR",
+        "aliases": []
+    },
+    {
+        "name": "Eregli",
+        "code": "TRERE",
+        "aliases": []
+    },
+    {
+        "name": "Fatsa",
+        "code": "TRFAT",
+        "aliases": []
+    },
+    {
+        "name": "Fethiye",
+        "code": "TRFET",
+        "aliases": []
+    },
+    {
+        "name": "Finike",
+        "code": "TRFNK",
+        "aliases": []
+    },
+    {
+        "name": "Gemlik",
+        "code": "TRGEM",
+        "aliases": []
+    },
+    {
+        "name": "Giresun",
+        "code": "TRGIR",
+        "aliases": []
+    },
+    {
+        "name": "Gocek",
+        "code": "TRGOC",
+        "aliases": []
+    },
+    {
+        "name": "Gorele",
+        "code": "TRGOR",
+        "aliases": []
+    },
+    {
+        "name": "Gulluk",
+        "code": "TRGLK",
+        "aliases": []
+    },
+    {
+        "name": "Haydarpasa",
+        "code": "TRHAY",
+        "aliases": []
+    },
+    {
+        "name": "Hereke",
+        "code": "TRHER",
+        "aliases": []
+    },
+    {
+        "name": "Hopa",
+        "code": "TRHOP",
+        "aliases": []
+    },
+    {
+        "name": "Icdas Jetty",
+        "code": "TRICD",
+        "aliases": []
+    },
+    {
+        "name": "Inebolu",
+        "code": "TRINE",
+        "aliases": []
+    },
+    {
+        "name": "Isdemir",
+        "code": "TRISD",
+        "aliases": []
+    },
+    {
+        "name": "Iskenderun",
+        "code": "TRISK",
+        "aliases": []
+    },
+    {
+        "name": "Istanbul",
+        "code": "TRIST",
+        "aliases": []
+    },
+    {
+        "name": "Izmir",
+        "code": "TRIZM",
+        "aliases": []
+    },
+    {
+        "name": "Izmit",
+        "code": "TRIZT",
+        "aliases": []
+    },
+    {
+        "name": "Karabiga",
+        "code": "TRKRB",
+        "aliases": []
+    },
+    {
+        "name": "Karasu",
+        "code": "TRKSP",
+        "aliases": []
+    },
+    {
+        "name": "Kumport",
+        "code": "TRKUM",
+        "aliases": []
+    },
+    {
+        "name": "Kusadasi",
+        "code": "TRKUS",
+        "aliases": []
+    },
+    {
+        "name": "Samsun",
+        "code": "TRSSX",
+        "aliases": []
+    },
+    {
+        "name": "Tekirdag",
+        "code": "TRTEK",
+        "aliases": [
+            "TEKIRDAGTURKIYE"
+        ]
+    }
+]

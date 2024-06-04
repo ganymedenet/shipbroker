@@ -1,0 +1,65 @@
+[
+  {
+    "name": "Azov",
+    "code": "RUAZO",
+    "aliases": [
+      "AZOV"
+    ]
+  },
+  {
+    "name": "Berdiansk",
+    "code": "UAERD",
+    "aliases": []
+  },
+  {
+    "name": "Henichesk",
+    "code": "UAHEN",
+    "aliases": []
+  },
+  {
+    "name": "Kerch",
+    "code": "UAKER",
+    "aliases": []
+  },
+  {
+    "name": "Mariupol",
+    "code": "UAMP",
+    "aliases": []
+  },
+  {
+    "name": "Rostov-on-Don",
+    "code": "RUROV",
+    "aliases": [
+      "ROSTOV",
+      "RUROSTOV"
+    ]
+  },
+  {
+    "name": "Taganrog",
+    "code": "RUTAG",
+    "aliases": []
+  },
+  {
+    "name": "Temryuk",
+    "code": "RUTMR",
+    "aliases": []
+  },
+  {
+    "name": "Yeysk",
+    "code": "RUYEY",
+    "aliases": [
+      "RUYEY",
+      "YEYSK"
+    ]
+  },
+  {
+    "name": "Kavkaz",
+    "code": "RUKZP",
+    "aliases": []
+  },
+  {
+    "name": "Samara",
+    "code": "RUKUF",
+    "aliases": []
+  }
+]

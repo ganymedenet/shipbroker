@@ -91,7 +91,7 @@ else:
     }
     ship_response = session.post(SHIP_INFO, data=ship_search)
 
-    with open("./file.html", "w", encoding='utf-8') as file:
+    with open("file.html", "w", encoding='utf-8') as file:
         file.write(ship_response.text)
 
     search_soup = BeautifulSoup(ship_response.content, 'html.parser')
