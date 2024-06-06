@@ -1,199 +1,52 @@
 import json
 import time
 
-import requests
-from bs4 import BeautifulSoup
+from utils.sql import DBClient
+from owner_searcher import OwnerSearcher
 
 
-# # Replace with your Equasis login details
-#
-#
-# # Start a session to persist cookies
-#
-# # Get the login page
-#
-#
-# # Print the content of the login page for debugging
-#
-#
-# # Parse the login page
-# soup = BeautifulSoup(login_page.content, 'html.parser')
-#
-# # Locate the correct login form (adjust if needed)
-# login_form = soup.find('form', {'name': 'formLogin'}) or soup.find('form', {'name': 'formLoginMobile'})
-#
-# if login_form is None:
-#     print("Login form not found!")
-# else:
-#     # Extract necessary form data (e.g., hidden inputs)
-#     form_data = {}
-#     for input_tag in login_form.find_all('input'):
-#         if input_tag.get('name'):
-#             form_data[input_tag['name']] = input_tag.get('value')
-#
-#     # Add username and password to the form data
-#     form_data['j_email'] = USERNAME
-#     form_data['j_password'] = PASSWORD
-#
-#     # print(form_data)
-#     # Send the login request
-#
-#     imo_number = "9250543"
-#
-#     ship_search = {
-#         'P_IMO': imo_number,
-#     }
-#     ship_response = session.post(SHIP_INFO, data=ship_search)
-#
-#     with open("./file.html", "w", encoding='utf-8') as file:
-#         file.write(ship_response.text)
-#
-#     search_soup = BeautifulSoup(ship_response.content, 'html.parser')
-#
-#     # print(search_soup)
-#
-#     table = search_soup.find('table', class_='tableLS')
-#
-#     # print(table)
-#
-#     # Find all <tr> elements
-#     rows = table.find_all('tr')
-#     #
-#     # print(rows)
-#     #
-#     # # Loop through each row to find the 'Registered owner'
-#
-#     result = dict()
-#
-#     for row in rows:
-#         if 'Registered owner' in row.text:
-#             print("YES")
-#             columns = row.find_all('td')
-#             owner_name = columns[2].text.strip()  # Assuming owner name is in the third <td>
-#             owner_address = columns[3].text.strip()  # Assuming address is in the fourth <td>
-#             # print(f"Owner Name: {owner_name}")
-#             # print(f"Address: {owner_address}")
-#             # Exit the loop once the registered owner is found
-#
-#             result = dict(
-#                 owner_name=owner_name,
-#                 owner_address=owner_address,
-#
-#             )
-#
-#             break
-#
-#     print(json.dumps(result, indent=4))
-
-
-class OwnerSearcher:
+class ShipManager:
     def __init__(self):
-        self.USERNAME = 'sergey.rossman@gmail.com'
-        self.PASSWORD = 'Derby777!'
-        self.HOME_URL = 'https://www.equasis.org/EquasisWeb/public/HomePage?fs=HomePage&P_ACTION=NEW_CONNECTION'
-        self.LOGIN_URL = 'https://www.equasis.org/EquasisWeb/authen/HomePage?fs=HomePage'
-        self.DATA_URL = 'https://www.equasis.org/EquasisWeb/restricted/ShipList?fs=ShipName'
-        self.SEARCH_URL = 'https://www.equasis.org/EquasisWeb/restricted/Search?fs=Search'
-        self.SHIP_INFO = 'https://www.equasis.org/EquasisWeb/restricted/ShipInfo?fs=Search'
+        self.db = DBClient()
+        self.owner_searcher = OwnerSearcher()
 
-        self.session = requests.Session()
+    def get_ships(self):
+        sql = "SELECT * FROM ships;"
 
-        self.session.headers.update({
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
-            'Referer': 'https://www.equasis.org/EquasisWeb/public/HomePage?fs=HomePage&P_ACTION=NEW_CONNECTION',
-            'Accept-Encoding': 'ggzip, deflate, br, zstd',
-            'Content-Type': 'application/x-www-form-urlencoded'
-        })
+        sql = "SELECT row_to_json(sh) FROM (SELECT * FROM ships) sh;"
 
-        self.result = dict()
+        res = self.db.exec_sql(sql_req=sql, one=False)
 
-    def init_session(self):
-        login_page = self.session.get(self.HOME_URL)
-        self.login()
+        return res
 
-    def login(self):
-        form_data = {
-            "j_email": self.USERNAME,
-            "j_password": self.PASSWORD
-        }
-        response = self.session.post(self.LOGIN_URL, data=form_data)
+    def update_ship(self, ship_id, data):
+        owner_json = json.dumps(data["owner"]).replace("'", "''")
+        manager_json = json.dumps(data["manager"]).replace("'", "''")
 
-    def get_data(self, imo_number):
+        sql = f"""UPDATE ships SET 
+                owner = '{owner_json}'::jsonb,
+                manager = '{manager_json}'::jsonb
+                WHERE id = '{ship_id}'
+        """
+        # print(sql)
+        self.db.exec_sql_comm(sql)
 
-        time.sleep(1)
+    def run(self):
+        ships = self.get_ships()
 
-        ship_search = {
-            'P_IMO': imo_number,
-        }
-        ship_response = self.session.post(self.SHIP_INFO, data=ship_search)
+        for ship in ships:
+            ship = ship[0]
 
-        # with open("./file.html", "w", encoding='utf-8') as file:
-        #     file.write(ship_response.text)
+            data = self.owner_searcher.get_data(ship["general"]["imo"])
+            # print(data)
+            self.update_ship(ship_id=ship["id"], data=data)
 
-        search_soup = BeautifulSoup(ship_response.content, 'html.parser')
+            print(f"Ship {ship['id']} has been updated!\n")
+            time.sleep(0.5)
 
-        # print(search_soup)
-
-        table = search_soup.find('table', class_='tableLS')
-
-        if not table:
-            return None
-
-        # print(table)
-
-        # Find all <tr> elements
-        rows = table.find_all('tr')
-
-        for row in rows:
-            if 'Registered owner' in row.text:
-                columns = row.find_all('td')
-                owner_name = columns[2].text.strip()
-                owner_address = columns[3].text.strip()
-
-            if "Ship manager/Commercial manager" in row.text:
-                columns = row.find_all('td')
-                manager_name = columns[2].text.strip()
-                manager_address = columns[3].text.strip()
-
-            if "ISM Manager" in row.text:
-                columns = row.find_all('td')
-                ism_manager_name = columns[2].text.strip()
-                ism_manager_address = columns[3].text.strip()
-
-        result = dict(
-            owner=dict(
-                name=owner_name,
-                address=owner_address,
-            ),
-            manager=dict(
-                name=manager_name,
-                address=manager_address,
-            ),
-            ism_manager=dict(
-                name=ism_manager_name,
-                address=ism_manager_address,
-            )
-
-        )
-
-        return result
+        print("DONE")
 
 
 if __name__ == "__main__":
-    client = OwnerSearcher()
-
-    client.init_session()
-
-    imo_number = "9250543"
-
-    imos = ["9660097", "9250543", "9477490"]
-
-    for number in imos:
-        res = client.get_data(number)
-
-        if res:
-            print(json.dumps(res, indent=4))
-        else:
-            print("Nothing")
-
-        print("=====")
+    sm = ShipManager()
+    sm.run()
