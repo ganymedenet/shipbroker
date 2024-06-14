@@ -20,13 +20,21 @@ class ShipManager:
         return res
 
     def update_ship(self, ship_id, data):
-        owner_json = json.dumps(data["owner"]).replace("'", "''")
-        manager_json = json.dumps(data["manager"]).replace("'", "''")
+
+        if data.get("owner"):
+            owner_json = json.dumps(data["owner"]).replace("'", "''")  #
+        else:
+            owner_json = {}
+
+        if data.get("manager"):
+            manager_json = json.dumps(data["manager"]).replace("'", "''")
+        else:
+            manager_json = {}
 
         sql = f"""UPDATE ships SET 
                 owner = '{owner_json}'::jsonb,
                 manager = '{manager_json}'::jsonb
-                WHERE id = '{ship_id}'
+                WHERE id = '{ship_id}';
         """
         # print(sql)
         self.db.exec_sql_comm(sql)

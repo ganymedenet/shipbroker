@@ -110,7 +110,8 @@ class OwnerSearcher:
 
     def init_session(self):
         login_page = self.session.get(self.HOME_URL)
-        self.login()
+        login = self.login()
+        print("Login", login)
 
     def login(self):
         form_data = {
@@ -118,6 +119,13 @@ class OwnerSearcher:
             "j_password": self.PASSWORD
         }
         response = self.session.post(self.LOGIN_URL, data=form_data)
+
+        if "Rossman" in response.text:
+            print("VALID LOGIN")
+            return True
+        else:
+            print("INVALID LOGIN")
+            return False
 
     def get_data(self, imo_number):
 
@@ -138,7 +146,9 @@ class OwnerSearcher:
         table = search_soup.find('table', class_='tableLS')
 
         if not table:
-            return None
+            print("\n=== RELOGIN ===")
+            self.login()
+            return self.get_data(imo_number)
 
         # print(table)
 
